@@ -1,70 +1,56 @@
 package exercise10;
 
-public class Ellipse {
+public class Ellipse extends Figure {
     private Point startPoint;
-    private double a;
-    private double b;
+    private double side2;
+    private double side1;
 
     public Ellipse() {
-        startPoint = new Point(0, 0);
-        a = 1;
-        b = 1;
+        
+        super(new Point(0,0),1,1);
     }
 
-    public Ellipse(Point startPoint, double a, double b) {
-        this.startPoint = new Point(startPoint);
-        this.a = a;
-        this.b = b;
+    public Ellipse(Point startPoint, double side2, double side1) {
+       super(new Point(startPoint,side2,side1));
+
     }
 
     public Ellipse(Ellipse otherEllipse) {
-        startPoint = new Point(otherEllipse.startPoint);
-        a = otherEllipse.a;
-        b = otherEllipse.b;
+       super(new Point(otherEllipse.startpoint),otherEllipse.side2,otherEllipse.side1);
+      
     }
 
     public boolean isValid() {
-        return a > 0 && b > 0;
+        return side2 > 0 && side1 > 0;
     }
 
-    public void initialize() {
-        do {
-            System.out.println("Start point: ");
-            startPoint.initialize();
-            System.out.print("Enter a: ");
-            a = Utils.INPUT.nextDouble();
-            System.out.print("Enter b: ");
-            b = Utils.INPUT.nextDouble();
-        } while (!isValid());
-    }
+    
+    
 
     public double calculatePerimeter() {
-        return Math.PI * (3.0 * (a + b) - Math.sqrt((3.0 * a + b) * (a + 3.0 * b)));
+        return Math.PI * (3.0 * (side2 + side1) - Math.sqrt((3.0 * side2 + side1) * (side2 + 3.0 * side1)));
     }
 
     public double calculateArea() {
-        return Math.PI * a * b;
+        return Math.PI * side2 * side1;
     }
 
     public String getType() {
-        return (a == b) ? "Circle" : "Ellipse";
+        return (side2 == side1) ? "Circle" : "Ellipse";
     }
 
-    public String toString() {
-        return String.format("%s-[%s, %s], %s, P=%s, A=%s", startPoint, a, b, getType(), calculatePerimeter(), calculateArea());
-    }
-
-    public boolean equal(Ellipse otherEllipse) {
-        boolean sameA = Utils.equals(a, otherEllipse.a);
-        boolean sameB = Utils.equals(b, otherEllipse.b);
-        boolean sameAReversed = Utils.equals(a, otherEllipse.b);
-        boolean sameBReversed = Utils.equals(b, otherEllipse.a);
+        public boolean equal(Ellipse otherEllipse) {
+        boolean sameA = Utils.equals(side2, otherEllipse.side2);
+        boolean sameB = Utils.equals(side1, otherEllipse.side1);
+        boolean sameAReversed = Utils.equals(side2, otherEllipse.side1);
+        boolean sameBReversed = Utils.equals(side1, otherEllipse.side2);
 
         return (sameA && sameB) || (sameAReversed && sameBReversed);
     }
 
     public boolean containsClick(Point click) {
         // Check if click point is inside the rectangle
+
         return false;
     }
 }

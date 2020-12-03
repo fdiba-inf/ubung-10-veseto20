@@ -40,6 +40,7 @@ public class Rectangle extends Figure {
     @Override
     public boolean containsClick(Point click) {
         // Check if click point is inside the rectangle
+        boolean xInside = 
         return false;
     }
 }
