@@ -7,8 +7,8 @@ public class Ellipse extends Figure {
         super(new Point(0,0),1,1);
     }
 
-    public Ellipse(Point startPoint, double a, double b) {
-       super(new Point(startPoint,a,b));
+    public Ellipse(Point startPoint, double height , double width) {
+       super(new Point(startPoint,height, width));
 
     }
 
