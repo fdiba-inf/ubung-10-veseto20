@@ -1,17 +1,14 @@
 package exercise10;
 
 public class Ellipse extends Figure {
-    private Point startPoint;
-    private double side1;
-    private double side2;
-
+    
     public Ellipse() {
         
         super(new Point(0,0),1,1);
     }
 
-    public Ellipse(Point startPoint, double side1, double side2) {
-       super(new Point(startPoint,side1,side2));
+    public Ellipse(Point startPoint, double height, double width) {
+       super(new Point(startPoint,height,width));
 
     }
 
