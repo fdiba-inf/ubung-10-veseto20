@@ -47,7 +47,8 @@ public class Ellipse extends Figure {
         double solution = Math.pow((clickX - startX), 2) / (side1 * side1) +
                 Math.pow((clickY - startY), 2) / (side2 * side2);
 
-        return solution <= 1;
+        if(solution<=1) return true;
+        return false;
     }
 
       
