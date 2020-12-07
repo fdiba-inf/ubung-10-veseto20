@@ -40,13 +40,8 @@ public class Rectangle extends Figure {
     @Override
     public boolean containsClick(Point click) {
         
-        double clickX = click.getX();
-        double clickY = click.getY();
-        double startX = startPoint.getX();
-        double startY = startPoint.getY();
-
-        boolean xInside = (startX < clickX) && (clickX < startX + side2);
-        boolean yInside = (startY < clickY) && (clickY < startY + side1);
+       boolean xInside = (click.getX()>=startpoint.getX()&&click.getX()<=startpoint.getX()+side2);
+       boolean yInside = (click.getY()>=startpoint.getY()&&click.getY()<=startpoint.getY()+side2);
 
         return xInside && yInside;
     }
